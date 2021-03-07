@@ -1,7 +1,7 @@
 SHELL=/bin/bash
 
 name = dotnet
-ports = 8000:80
+ports = 5000:80
 
 ifndef network
 	network=dotnet-net
