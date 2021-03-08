@@ -21,7 +21,7 @@ run: build
 
 .PHONY: shell
 shell: build network
-	docker container run --name $(name) --network=$(network) -v $(shell pwd):/app/ -w /app -p $(ports) -it --rm $(name) /bin/bash
+	docker container run --name $(name) --network=$(network) -v $(shell pwd)/src:/app/ -w /app -p $(ports) -it --rm $(name) /bin/bash
 
 .PHONY: stop
 stop:
