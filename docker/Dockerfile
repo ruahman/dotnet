@@ -6,8 +6,14 @@ ENV DOTNET_USE_POLLING_FILE_WATCHER=true
 ENV ASPNETCORE_URLS=http://+:80  
 EXPOSE 80
 
+RUN useradd -ms /bin/bash admin
+
+USER admin
+
 RUN dotnet tool install --global dotnet-ef
 
 ENV PATH="${PATH}:/root/.dotnet/tools"
 
 RUN echo 'alias dotnet-run="dotnet run --urls http://0.0.0.0:80"' >> ~/.bashrc
+
+

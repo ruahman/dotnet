@@ -1,16 +1,16 @@
 SHELL=/bin/bash
 
 name = dotnet
+image = dotnet
 ports = 5000:80
+network = dotnet-net
+dockerfile = /home/ruahman/Projects/dotnet/docker/Dockerfile
 
-ifndef network
-	network=dotnet-net
-endif
 
 .PHONY: build
 build:
-	@if [[ "$(shell docker images -q $(name) 2> /dev/null)" == "" ]]; then \
-		docker build -t $(name) . ; \
+	@if [[ "$(shell docker images -q $(image) 2> /dev/null)" == "" ]]; then \
+		docker build -f $(dockerfile) -t $(image) . ; \
 	else \
 		echo "image: $(name) is already setup"; \
 	fi
@@ -29,7 +29,7 @@ run: build
 
 .PHONY: shell
 shell: build network
-	docker container run --network=$(network) -v $(shell pwd)/src:/app/ -w /app -p $(ports) -it --rm $(name) /bin/bash
+	docker container run --name=$(name) --network=$(network) -v $(shell pwd):/app/ -w /app -p $(ports) -it --rm $(image) /bin/bash
 
 .PHONY: stop
 stop:
