@@ -1,11 +1,24 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dog2Bone
 {
+    public class Dog2BoneJson
+    {
+        [JsonProperty("board")]
+        public int[] Board { get; set; }
+
+        [JsonProperty("start")]
+        public object[] Start { get; set; }
+
+        [JsonProperty("bone")]
+        public int[] Bone { get; set; }
+
+        [JsonProperty("cats")]
+        public List<int[]> Cats { get; set; }
+    }
+
     public struct Position
     {
         public int X;
@@ -19,6 +32,10 @@ namespace Dog2Bone
     public class GameEngineException : Exception
     {
         public GameEngineException(string message) : base(message) { }
+
+        public GameEngineException(string message, Exception innerException) :
+            base(message, innerException)
+        { }
     }
 
     public class DogOutOfBounds : GameEngineException
@@ -49,5 +66,12 @@ namespace Dog2Bone
     public class BoneOutOfBounds : GameEngineException
     {
         public BoneOutOfBounds() : base("") { }
+    }
+
+    public class InvalidMove : GameEngineException
+    {
+        public InvalidMove() : base("") { }
+
+        public InvalidMove(Exception ex) : base("", ex) { }
     }
 }

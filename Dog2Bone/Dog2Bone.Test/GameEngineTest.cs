@@ -10,14 +10,11 @@ namespace Dog2Bone.Test
     {
         public GameEngine Load(string initFile, string movesFile)
         {
-            var initializePath = @$"fixtures/initialize/{initFile}.json";
-
-            var movesPath = @$"fixtures/moves/{movesFile}.csv";
-
-            var gameEngine = Loader.LoadDogToBone(initializePath, movesPath);
+            var gameEngine = Loader.LoadDogToBone(
+                @$"fixtures/initialize/{initFile}.json",
+                @$"fixtures/moves/{movesFile}.csv");
 
             return gameEngine;
-
         }
 
     }
@@ -46,7 +43,7 @@ namespace Dog2Bone.Test
         [InlineData("initialize-success", "moves-stilllooking-cat2", Results.StillLooking)]
         [InlineData("initialize-success", "moves-stilllooking-cat3", Results.StillLooking)]
         [InlineData("initialize-success", "moves-foundbone", Results.Success)]
-        public void Run_Successfuly(string initFile, string movesFile, Results expected)
+        public void GameEngine_ReturnsResults(string initFile, string movesFile, Results expected)
         {
             var eng = _fixture.Load(initFile, movesFile);
             var res = eng.Run();

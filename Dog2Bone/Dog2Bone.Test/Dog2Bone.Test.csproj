@@ -96,6 +96,9 @@
     <None Update="fixtures\moves\moves-success.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="fixtures\moves\moves-invalid.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="fixtures\moves\moves0.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

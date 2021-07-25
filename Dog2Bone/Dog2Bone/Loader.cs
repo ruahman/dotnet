@@ -23,39 +23,48 @@ namespace Dog2Bone.Loader
                        movesReader = new(movesPath))
                 {
                     //// initialize game engine
+
                     string initTxt = initReader.ReadToEnd();
-                    var dataInit = JsonConvert.DeserializeObject<dynamic>(initTxt);
 
+                    var dogToBoneJson = JsonConvert.DeserializeObject<Dog2BoneJson>(initTxt);
 
-                    engine.Board = (dataInit.board[0].ToObject<int>(), dataInit.board[1].ToObject<int>());
+                    engine.Board = (dogToBoneJson.Board[0], dogToBoneJson.Board[1]);
 
                     engine.Dog = new Dog(
-                        dataInit.start[0].ToObject<int>(),
-                        dataInit.start[1].ToObject<int>(),
-                        Enum.Parse(typeof(Moves), dataInit.start[2].ToString()));
+                        Convert.ToInt32(dogToBoneJson.Start[0]),
+                        Convert.ToInt32(dogToBoneJson.Start[1]),
+                        (Moves)Enum.Parse(typeof(Moves), (string)dogToBoneJson.Start[2]));
 
-                    engine.Bone = (dataInit.bone[0].ToObject<int>(), dataInit.bone[1].ToObject<int>());
+                    engine.Bone = (dogToBoneJson.Bone[0], dogToBoneJson.Bone[1]);
 
-                    foreach (var cat in dataInit.cats)
+                    foreach (var cat in dogToBoneJson.Cats)
                     {
-                        engine.Cats.Add((cat[0].ToObject<int>(), cat[1].ToObject<int>()));
+                        engine.Cats.Add((cat[0], cat[1]));
                     }
 
                     //// validate game engine
+
                     engine.IsValid();
 
+                    //// load moves and validate
 
-                    //// load moves
                     string movesTxt = movesReader.ReadToEnd();
+
                     var moves = movesTxt.Split(',');
 
-                    foreach (string move in moves)
+                    try
                     {
-                        engine.Moves.Add((Moves)Enum.Parse(typeof(Moves), move));
+                        foreach (string move in moves)
+                        {
+                            engine.Moves.Add((Moves)Enum.Parse(typeof(Moves), move));
+                        }
                     }
+                    catch (ArgumentException ex)
+                    {
+                        throw new InvalidMove(ex);
+                    }
+
                 }
-
-
 
                 return engine;
 

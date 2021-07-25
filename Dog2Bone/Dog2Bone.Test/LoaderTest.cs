@@ -20,15 +20,15 @@ namespace Dog2Bone.Test
         }
 
         [Fact]
-        public void ReadInInitializeInputForDogToBone()
+        public void Loader_ReturnsGameEngine()
         {
             Loader.Logger = _testOut;
 
-            var initializePath = @"fixtures/initialize/initialize0.json";
 
-            var movesPath = @"fixtures/moves/moves0.csv";
 
-            var gameEngine = Loader.LoadDogToBone(initializePath, movesPath);
+            var gameEngine = Loader.LoadDogToBone(
+                @"fixtures/initialize/initialize0.json",
+                @"fixtures/moves/moves0.csv");
 
             Assert.NotNull(gameEngine);
 
@@ -56,7 +56,7 @@ namespace Dog2Bone.Test
         [InlineData("initialize-catoutofbounds", typeof(CatOutOfBounds))]
         [InlineData("initialize-catfoundbone", typeof(CatFoundBone))]
         [InlineData("initialize-boneoutofbounds", typeof(BoneOutOfBounds))]
-        public void TestForSuccess(string initFile, Type exceptionType)
+        public void Loader_GetsInititalizationFile_ThrowsExeption_IfInvalid(string initFile, Type exceptionType)
         {
             var initializePath = @$"fixtures/initialize/{initFile}.json";
 
@@ -79,6 +79,21 @@ namespace Dog2Bone.Test
 
                 Assert.Null(gameEngine);
             }
+        }
+
+        [Fact]
+        public void Loader_ValidatesMovesFile()
+        {
+            GameEngine gameEngine = null;
+            var ex = Assert.Throws<InvalidMove>(() =>
+            {
+                gameEngine = Loader.LoadDogToBone(
+                    @"fixtures/initialize/initialize0.json",
+                    @"fixtures/moves/moves-invalid.csv");
+            });
+
+
+            Assert.Null(gameEngine);
         }
     }
 }
