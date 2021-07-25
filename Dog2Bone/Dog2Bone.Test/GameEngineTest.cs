@@ -10,13 +10,9 @@ namespace Dog2Bone.Test
     {
         public GameEngine Load(string initFile, string movesFile)
         {
-            var initializePath = Path.GetRelativePath(
-                Directory.GetCurrentDirectory(),
-                @$"fixtures/initialize/{initFile}.json");
+            var initializePath = @$"fixtures/initialize/{initFile}.json";
 
-            var movesPath = Path.GetRelativePath(
-                Directory.GetCurrentDirectory(),
-                @$"fixtures/moves/{movesFile}.csv");
+            var movesPath = @$"fixtures/moves/{movesFile}.csv";
 
             var gameEngine = Loader.LoadDogToBone(initializePath, movesPath);
 

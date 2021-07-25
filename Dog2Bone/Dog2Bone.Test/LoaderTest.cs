@@ -24,14 +24,9 @@ namespace Dog2Bone.Test
         {
             Loader.Logger = _testOut;
 
-            var initializePath = Path.GetRelativePath(
-                Directory.GetCurrentDirectory(),
-                @"fixtures/initialize/initialize0.json");
+            var initializePath = @"fixtures/initialize/initialize0.json";
 
-            var movesPath = Path.GetRelativePath(
-                Directory.GetCurrentDirectory(),
-                @"fixtures/moves/moves0.csv");
-
+            var movesPath = @"fixtures/moves/moves0.csv";
 
             var gameEngine = Loader.LoadDogToBone(initializePath, movesPath);
 
@@ -63,13 +58,9 @@ namespace Dog2Bone.Test
         [InlineData("initialize-boneoutofbounds", typeof(BoneOutOfBounds))]
         public void TestForSuccess(string initFile, Type exceptionType)
         {
-            var initializePath = Path.GetRelativePath(
-                Directory.GetCurrentDirectory(),
-                @$"fixtures/initialize/{initFile}.json");
+            var initializePath = @$"fixtures/initialize/{initFile}.json";
 
-            var movesPath = Path.GetRelativePath(
-                Directory.GetCurrentDirectory(),
-                @"fixtures/moves/moves0.csv");
+            var movesPath = @"fixtures/moves/moves0.csv";
 
             if (exceptionType == null)
             {

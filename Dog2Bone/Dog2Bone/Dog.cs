@@ -47,9 +47,5 @@ namespace Dog2Bone.Dog
             }
         }
 
-        public void Rotate(Moves direction)
-        {
-            this.Direction = direction;
-        }
     }
 }
