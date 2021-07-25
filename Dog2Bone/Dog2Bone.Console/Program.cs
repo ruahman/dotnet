@@ -6,6 +6,8 @@ namespace Dog2Bone.Console
     using Dog2Bone;
     using Dog2Bone.Loader;
     using Dog2Bone.Engine;
+    using System.IO;
+    using System.Reflection;
 
     class Program
     {
@@ -15,7 +17,23 @@ namespace Dog2Bone.Console
 
             try
             {
-                var game = Loader.LoadDogToBone(initializationFile, movesFile);
+                string initializationPath = new Uri(
+                    Path.Combine(
+                        Path.GetDirectoryName(
+                            Assembly.GetExecutingAssembly().Location),
+                            "../../../" + initializationFile
+                            )
+                        ).LocalPath;
+
+                string movesPath = new Uri(
+                    Path.Combine(
+                        Path.GetDirectoryName(
+                            Assembly.GetExecutingAssembly().Location),
+                            "../../../" + movesFile
+                            )
+                        ).LocalPath;
+
+                var game = Loader.LoadDogToBone(initializationPath, movesPath);
 
                 result = game.Run();
 
@@ -39,7 +57,6 @@ namespace Dog2Bone.Console
                 if (result != Results.Success)
                 {
                     Console.WriteLine("Try modifying the moves.csv file.");
-                    Console.WriteLine("Type Y to continue or N to exit.");
                 }
 
                 return result;
@@ -87,6 +104,14 @@ namespace Dog2Bone.Console
             {
                 Console.WriteLine("There was a problem with loading Dog2Bone.");
             }
+            finally
+            {
+                if (result != Results.Success)
+                {
+                    Console.WriteLine("Type Y to continue or N to exit.");
+                }
+            }
+
 
             return result;
         }
@@ -108,6 +133,7 @@ namespace Dog2Bone.Console
                 }
 
                 conn = (char)Console.ReadKey().Key;
+                Console.WriteLine();
             }
             while (Char.ToUpper(conn) == 'Y');
         }

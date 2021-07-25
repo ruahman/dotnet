@@ -24,8 +24,6 @@ namespace Dog2Bone.Test
         {
             Loader.Logger = _testOut;
 
-
-
             var gameEngine = Loader.LoadDogToBone(
                 @"fixtures/initialize/initialize0.json",
                 @"fixtures/moves/moves0.csv");
