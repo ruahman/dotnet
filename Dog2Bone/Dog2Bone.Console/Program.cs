@@ -23,7 +23,7 @@ namespace Dog2Bone.Console
                         Console.WriteLine("Success");
                         break;
                     case Results.OutOfBounds:
-                        Console.WriteLine("Sorry but your out of bounds");
+                        Console.WriteLine("Sorry but you are out of bounds");
                         break;
                     case Results.CatAwake:
                         Console.WriteLine("You woke up a cat");
