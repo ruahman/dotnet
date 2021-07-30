@@ -5,13 +5,23 @@ namespace Dog2Bone.Console
     using System;
     using Dog2Bone;
     using Dog2Bone.Loader;
-    using Dog2Bone.Engine;
     using System.IO;
     using System.Reflection;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
 
-    class Program
+    class Dog2BoneApp
     {
-        static Results RunDog2Bone(string initializationFile, string movesFile)
+        private readonly ILogger<Dog2BoneApp> _logger;
+        private readonly Loader _loader;
+
+        public Dog2BoneApp(Loader loader, ILogger<Dog2BoneApp> logger)
+        {
+            _loader = loader;
+            _logger = logger;
+        }
+
+        public Results Dog2BoneRun(string initializationFile, string movesFile)
         {
             Results result = Results.StillLooking;
 
@@ -33,98 +43,98 @@ namespace Dog2Bone.Console
                             )
                         ).LocalPath;
 
-                var game = Loader.LoadDogToBone(initializationPath, movesPath);
+                var game = _loader.Load(initializationPath, movesPath);
 
                 result = game.Run();
 
                 switch (result)
                 {
                     case Results.Success:
-                        Console.WriteLine("Success, you found the bone.");
-                        Console.WriteLine("Press any key to exit.");
+                        _logger.LogInformation("Success, you found the bone.");
+                        _logger.LogInformation("Press any key to exit.");
                         break;
                     case Results.OutOfBounds:
-                        Console.WriteLine("Sorry, but you went out of bounds");
+                        _logger.LogInformation("Sorry, but you went out of bounds");
                         break;
                     case Results.CatAwake:
-                        Console.WriteLine("You woke up a cat!!!");
+                        _logger.LogInformation("You woke up a cat!!!");
                         break;
                     case Results.StillLooking:
-                        Console.WriteLine("You didn't find the bone.");
+                        _logger.LogInformation("You didn't find the bone.");
                         break;
                 }
 
                 if (result != Results.Success)
                 {
-                    Console.WriteLine("Try modifying the moves.csv file.");
+                    _logger.LogInformation("Try modifying the moves.csv file.");
                 }
 
                 return result;
+
             }
             catch (GameEngineException ex)
             {
-                Console.WriteLine("Problem with one of your files.");
+                _logger.LogInformation("Problem with one of your files.");
 
                 if (ex.GetType() == typeof(DogOutOfBounds))
                 {
-                    Console.WriteLine("The Dog was out of bounds.");
+                    _logger.LogInformation("The Dog was out of bounds.");
                 }
                 else if (ex.GetType() == typeof(DogWakeCat))
                 {
-                    Console.WriteLine("The Dog already woke the cat.");
+                    _logger.LogInformation("The Dog already woke the cat.");
                 }
                 else if (ex.GetType() == typeof(DogFoundBone))
                 {
-                    Console.WriteLine("The Dog already found the bone.");
+                    _logger.LogInformation("The Dog already found the bone.");
                 }
                 else if (ex.GetType() == typeof(CatOutOfBounds))
                 {
-                    Console.WriteLine("One of the cats were out of bounds.");
+                    _logger.LogInformation("One of the cats were out of bounds.");
                 }
                 else if (ex.GetType() == typeof(CatFoundBone))
                 {
-                    Console.WriteLine("One of the cats found the bone???");
+                    _logger.LogInformation("One of the cats found the bone???");
                 }
                 else if (ex.GetType() == typeof(BoneOutOfBounds))
                 {
-                    Console.WriteLine("The bone was out of bounds.");
+                    _logger.LogInformation("The bone was out of bounds.");
                 }
                 else if (ex.GetType() == typeof(InvalidMove))
                 {
-                    Console.WriteLine("You passed in an invalid move.");
-                    Console.WriteLine("Try fixing your moves.csv file.");
+                    _logger.LogInformation("You passed in an invalid move.");
+                    _logger.LogInformation("Try fixing your moves.csv file.");
                 }
 
                 if (ex.GetType() != typeof(InvalidMove))
                 {
-                    Console.WriteLine("Try fixing your initialization.json file.");
+                    _logger.LogInformation("Try fixing your initialization.json file.");
                 }
             }
             catch (Exception)
             {
-                Console.WriteLine("There was a problem with loading Dog2Bone.");
+                _logger.LogInformation("There was a problem with loading Dog2Bone.");
             }
             finally
             {
                 if (result != Results.Success)
                 {
-                    Console.WriteLine("Type Y to continue or N to exit.");
+                    _logger.LogInformation("Type Y to continue or N to exit.");
                 }
             }
-
 
             return result;
         }
 
-        static void Main(string[] args)
+        public void Run(string init, string moves)
         {
-            Console.WriteLine("Welcome to Dog2Bone:");
+            char input;
 
-            char conn;
+            _logger.LogInformation("Welcome to Dog2Bone:");
 
             do
             {
-                var res = RunDog2Bone(args[0], args[1]);
+                var res = Dog2BoneRun(init, moves);
 
                 if (res == Results.Success)
                 {
@@ -132,10 +142,38 @@ namespace Dog2Bone.Console
                     break;
                 }
 
-                conn = (char)Console.ReadKey().Key;
+                input = (char)Console.ReadKey().Key;
                 Console.WriteLine();
             }
-            while (Char.ToUpper(conn) == 'Y');
+            while (Char.ToUpper(input) == 'Y');
         }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var services = new ServiceCollection();
+
+            ConfigureServices(services);
+
+            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
+            {
+                Dog2BoneApp app = serviceProvider.GetService<Dog2BoneApp>();
+
+                app.Run(args[0], args[1]);
+            }
+        }
+
+        private static void ConfigureServices(ServiceCollection services)
+        {
+            services
+                .AddLogging(configure => configure.AddConsole())
+                .AddSingleton<Loader, LoderJson>()
+                .AddTransient<Dog2BoneApp>();
+
+        }
+
+
     }
 }

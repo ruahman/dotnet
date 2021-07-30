@@ -4,18 +4,14 @@ using System.Collections.Generic;
 
 namespace Dog2Bone
 {
-    public class Dog2BoneJson
+    public class Dog2BoneData
     {
-        [JsonProperty("board")]
         public int[] Board { get; set; }
 
-        [JsonProperty("start")]
         public object[] Start { get; set; }
 
-        [JsonProperty("bone")]
         public int[] Bone { get; set; }
 
-        [JsonProperty("cats")]
         public List<int[]> Cats { get; set; }
     }
 

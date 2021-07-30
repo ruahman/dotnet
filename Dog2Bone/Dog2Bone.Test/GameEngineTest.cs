@@ -1,6 +1,8 @@
-using System.IO;
 using Xunit;
+using Moq;
 using Dog2Bone.Engine;
+using Microsoft.Extensions.Logging;
+
 
 namespace Dog2Bone.Test
 {
@@ -8,9 +10,15 @@ namespace Dog2Bone.Test
 
     public class GameEngineFixture
     {
+        private Loader _loader;
+
         public GameEngine Load(string initFile, string movesFile)
         {
-            var gameEngine = Loader.LoadDogToBone(
+            var logger = new Mock<ILogger<Loader>>();
+
+            _loader = new LoderJson(logger.Object);
+
+            var gameEngine = _loader.Load(
                 @$"fixtures/initialize/{initFile}.json",
                 @$"fixtures/moves/{movesFile}.csv");
 
@@ -21,6 +29,8 @@ namespace Dog2Bone.Test
     public class GameEngineTest : IClassFixture<GameEngineFixture>
     {
         private readonly GameEngineFixture _fixture;
+
+
         public GameEngineTest(GameEngineFixture fixture)
         {
             _fixture = fixture;

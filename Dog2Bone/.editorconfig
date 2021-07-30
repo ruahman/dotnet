@@ -2,3 +2,7 @@
 
 # CS8632: The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 dotnet_diagnostic.CS8632.severity = none
+csharp_prefer_simple_using_statement=false:suggestion
+
+[*.{cs,vb}]
+dotnet_diagnostic.CA1822.severity=silent
