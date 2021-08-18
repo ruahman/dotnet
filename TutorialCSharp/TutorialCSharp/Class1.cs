@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DesignPatterns
+namespace TutorialCSharp
 {
     public class Class1
     {
