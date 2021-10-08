@@ -177,7 +177,7 @@ namespace TestCSharp
         [Fact]
         public void TestDelegate()
         {
-            numeros numero = new numeros(sumar);
+            numeros numero = new(sumar);
 
             numeros lambda = y => y * y;
 
