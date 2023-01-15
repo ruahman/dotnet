@@ -43,15 +43,15 @@ namespace CSharpTut
 
         public static (float, double, decimal, double) Floats()
         {
-            float x = 3.12f; // least accurate
-            double y = 3.33333; // default
-            decimal z = 4.566666666m;  // most acurate
+            float f = 3.12f; // least accurate
+            double d = 3.33333; // default
+            decimal dec = 4.566666666m;  // most acurate
             var pow = Math.Pow(3, 3);
 
-            return (x, y, z, pow);
+            return (f, d, dec, pow);
         }
 
-        public static bool Boolean()
+        public static bool Booleans()
         {
             bool x = true;
             return x;

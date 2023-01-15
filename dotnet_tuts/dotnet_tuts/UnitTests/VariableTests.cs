@@ -47,6 +47,25 @@ namespace UnitTests
             Assert.Equal(7, abs);
         }
 
+        [Fact]
+        [Trait("Category", "Variables")]
+        public void Floats()
+        {
+            (float f, double d, decimal dec, double pow) = Variables.Floats();
+            Assert.Equal(3.12f, f);
+            Assert.Equal(3.33333, d);
+            Assert.Equal(4.566666666m, dec);
+            Assert.Equal(27, pow);
+        }
+
+        [Fact]
+        [Trait("Category", "Variables")]
+        public void Booleans()
+        {
+            bool x = Variables.Booleans();
+            Assert.True(x);
+        }
+
 
     }
 }
