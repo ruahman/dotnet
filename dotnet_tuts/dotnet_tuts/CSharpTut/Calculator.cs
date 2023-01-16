@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSharpTut
+﻿namespace CSharpTut
 {
     public class Calculator
     {
@@ -14,9 +7,9 @@ namespace CSharpTut
             return x + y;
         }
 
-        public virtual int Sub(int x, int y) 
-        { 
-            return x - y; 
-        }  
+        public virtual int Sub(int x, int y)
+        {
+            return x - y;
+        }
     }
 }

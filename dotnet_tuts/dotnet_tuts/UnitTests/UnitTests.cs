@@ -1,10 +1,8 @@
 using CSharpTut;
+using Moq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 using Xunit.Abstractions;
 using Xunit.Sdk;
-using Moq;
 
 namespace UnitTests
 {
@@ -18,7 +16,8 @@ namespace UnitTests
     {
         public static IEnumerable<object[]> Data
         {
-            get {
+            get
+            {
                 yield return new object[] { 1, 2, 3 };
                 yield return new object[] { 2, 2, 4 };
                 yield return new object[] { 3, 2, 5 };
@@ -27,7 +26,8 @@ namespace UnitTests
 
     }
 
-    public class TestDataAttribute : DataAttribute {
+    public class TestDataAttribute : DataAttribute
+    {
 
         public override IEnumerable<object[]> GetData(MethodInfo testMethod)
         {
@@ -37,15 +37,19 @@ namespace UnitTests
         }
     }
 
-    public class UnitTest1 : IClassFixture<CalculatorFixture>
+    public class UnitTests : IClassFixture<CalculatorFixture>
     {
         private readonly ITestOutputHelper output;
         private readonly CalculatorFixture _fixture;
 
-        public UnitTest1(ITestOutputHelper output, CalculatorFixture fixture)
+        public UnitTests(ITestOutputHelper output, CalculatorFixture fixture)
         {
             this.output = output;
             _fixture = fixture;
+
+            // console now outputs to xUnit
+            var converter = new Converter(output);
+            Console.SetOut(converter);
         }
 
         [Fact]
@@ -58,7 +62,7 @@ namespace UnitTests
         }
 
         [Fact]
-        [Trait("Category","Goodbye")]
+        [Trait("Category", "Goodbye")]
         public void Goodbye_GivenNothing_ReturnString()
         {
             var res = HelloWorld.Goodbye();
@@ -67,14 +71,14 @@ namespace UnitTests
         }
 
         [Fact]
-        [Trait("Category","Calculator")]
+        [Trait("Category", "Calculator")]
         public void Add_GivenOneAndTwo_ReturnThree()
         {
             var res = _fixture.Calc.Add(1, 2);
             Assert.Equal(3, res);
         }
 
-        
+
         [Theory]
         [InlineData(1, 2, 3)]
         [InlineData(2, 2, 4)]

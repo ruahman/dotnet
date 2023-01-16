@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSharpTut
+﻿namespace CSharpTut
 {
     public class Variables
     {
@@ -36,7 +30,7 @@ namespace CSharpTut
         {
             int myAge = 42;
             int abs = Math.Abs(-7);
-            
+
 
             return (myAge, abs);
         }
@@ -54,6 +48,13 @@ namespace CSharpTut
         public static bool Booleans()
         {
             bool x = true;
+            return x;
+        }
+
+        public static int? Nullable()
+        {
+            int? x = null;
+            
             return x;
         }
     }

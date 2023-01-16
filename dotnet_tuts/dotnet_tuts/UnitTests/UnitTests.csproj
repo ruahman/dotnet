@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CSharpTut\CSharpTut.csproj" />
+    <ProjectReference Include="..\DesignPatterns\DesignPatterns.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,4 @@
 ﻿using CSharpTut;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit.Abstractions;
 
 namespace UnitTests
@@ -13,9 +8,9 @@ namespace UnitTests
         ITestOutputHelper output;
 
         public VariableTests(ITestOutputHelper output) => this.output = output;
-        
+
         [Fact]
-        [Trait("Category","Variables")]
+        [Trait("Category", "Variables")]
         public void Strings()
         {
             (String first, String second, int length, string upper, bool contains, char myChar, int idx) = Variables.Strings();
@@ -64,6 +59,14 @@ namespace UnitTests
         {
             bool x = Variables.Booleans();
             Assert.True(x);
+        }
+
+        [Fact]
+        [Trait("Category", "Variables")]
+        public void Nullable()
+        {
+            int? x = Variables.Nullable();
+            Assert.Null(x);
         }
 
 
