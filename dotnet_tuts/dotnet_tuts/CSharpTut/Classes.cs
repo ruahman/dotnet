@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpTut
+namespace CSharpTut.Classes
 {
     public class Book
     {
@@ -119,7 +119,40 @@ namespace CSharpTut
         
     }
 
-    public class Classes
+    public class Car
+    {
+        public string? Make { get; set; }
+        public string? Modle { get; set; }
+        public string? Year { get; set; }
+    }
+
+    // If you don't want other classes to inherit from a class, don't know why you would do that
+    sealed class Vehicle
+    {
+        public string? Model { get; set; }
+    }
+
+    // this can never happen
+    //class Car : Vehicle
+    //{
+
+    //}
+
+    // abstract class is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+    abstract class Animal
+    {
+        // Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the derived class (inherited from).
+        public abstract void animalSound();
+        public void sleep()
+        {
+            Console.WriteLine("Zzz");
+        }
+    }
+
+
+
+
+    public static class Classes
     {
         public static Book CreateBook()
         {

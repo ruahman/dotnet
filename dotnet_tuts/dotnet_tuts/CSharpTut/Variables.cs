@@ -2,11 +2,13 @@
 {
     public class Variables
     {
-        public static (string, string, int, string, bool, char, int) Strings()
+        public static (string, string, int, string, bool, char, int, string) Strings()
         {
             string myName = "Diego";
 
             string interpolation = $"my name is {myName}";
+
+            string literal = @"G:\My Drive\Documents\denote";
 
             return (
                 myName,
@@ -15,7 +17,8 @@
                 myName.ToUpper(),
                 interpolation.Contains("Diego"),
                 myName[0],
-                interpolation.IndexOf("Diego")
+                interpolation.IndexOf("Diego"),
+                literal
             );
         }
 
@@ -56,6 +59,33 @@
             int? x = null;
             
             return x;
+        }
+
+        public static int Casting()
+        {
+            double myDouble = 9.78;
+            int myInt = (int)myDouble;    // Manual casting: double to int
+
+            Console.WriteLine(myDouble);   // Outputs 9.78
+            Console.WriteLine(myInt);      // Outputs 9
+
+            return myInt;
+
+        }
+
+        public static (string,double,int,string) Conversion()
+        {
+            int myInt = 10;
+            double myDouble = 5.25;
+            bool myBool = true;
+
+            var res1 = Convert.ToString(myInt);    // convert int to string
+            var res2 = Convert.ToDouble(myInt);    // convert int to double
+            var res3 = Convert.ToInt32(myDouble);  // convert double to int
+            var res4 = Convert.ToString(myBool);   // convert bool to string
+
+            return (res1,res2, res3, res4);
+
         }
     }
 }

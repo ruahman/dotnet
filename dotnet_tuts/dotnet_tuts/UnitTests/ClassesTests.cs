@@ -1,4 +1,4 @@
-﻿using CSharpTut;
+﻿using CSharpTut.Classes;
 
 
 namespace UnitTests
@@ -6,7 +6,7 @@ namespace UnitTests
     public class ClassesTests
     {
         [Fact]
-        [Trait("Category","Classes")]
+        [Trait("CSharp","Classes")]
         public void CreateBook()
         {
             var res = Classes.CreateBook();
@@ -14,7 +14,7 @@ namespace UnitTests
         }
 
         [Fact]
-        [Trait("Category", "Classes")]
+        [Trait("CSharp", "Classes")]
         public void HasHonors()
         {
             var res = Classes.HasHonors();
@@ -22,7 +22,7 @@ namespace UnitTests
         }
 
         [Fact]
-        [Trait("Category", "Classes")]
+        [Trait("CSharp", "Classes")]
         public void GetMovie()
         {
             var res = Classes.GetMovie();
@@ -30,7 +30,7 @@ namespace UnitTests
         }
 
         [Fact]
-        [Trait("Category", "Classes")]
+        [Trait("CSharp", "Classes")]
         public void GetItalianChef()
         {
             var res = Classes.GetItalianChef();
