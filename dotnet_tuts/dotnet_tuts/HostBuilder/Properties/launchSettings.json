@@ -1,0 +1,28 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {
+        "DOTNETCORE_ENVIRONMENT": "dev",
+        "DOTNETCORE_TEST": "foobar"
+      },
+      "distributionName": ""
+    },
+    "Dev": {
+      "commandName": "Project",
+      "commandLineArgs": "key1=val1 key2=val2",
+      "environmentVariables": {
+        "DOTNETCORE_TEST": "foobar",
+        "DOTNETCORE_ENVIRONMENT": "dev"
+      }
+    },
+    "Prod": {
+      "commandName": "Project",
+      "commandLineArgs": "key1=val1 key2=val2",
+      "environmentVariables": {
+        "DOTNETCORE_TEST": "foobar",
+        "DOTNETCORE_ENVIRONMENT": "prod"
+      }
+    }
+  }
+}

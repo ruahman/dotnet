@@ -98,5 +98,15 @@ namespace UnitTests
         }
 
 
+        [Fact]
+        [Trait("CSharp", "Variables")]
+        public void TryParse()
+        {
+            var res = Variables.TryParse();
+            Assert.True(res.Item1);
+            Assert.Equal(128, res.Item2);
+        }
+
+
     }
 }

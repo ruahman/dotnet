@@ -87,5 +87,13 @@
             return (res1,res2, res3, res4);
 
         }
+
+        public static (bool,int) TryParse()
+        {
+            string number = "128";
+
+            bool success = int.TryParse(number, out int parseValue);
+            return (success,parseValue);
+        }
     }
 }

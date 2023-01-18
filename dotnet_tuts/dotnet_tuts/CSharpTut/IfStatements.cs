@@ -37,5 +37,11 @@ namespace CSharpTut
                 return b;
             }
         }
+
+        public static int TernaryOperator(bool condition)
+        {
+            var res = condition ? 11 : 77;
+            return res;
+        }
     }
 }

@@ -26,5 +26,33 @@ namespace CSharpTut
         {
             return namedArguments(child3: "John", child1: "Liam", child2: "Liam");
         }
+
+        // and out parameter must be assigned a value
+        static bool outparameter(out string msg)
+        {
+            msg = "Diego";
+            return true;
+        }
+
+        public static string OutParameter(string msg)
+        {
+            _ = outparameter(out msg);
+            return msg;
+        }
+
+        // a ref parameter can be modified
+        public static void RefParameters(ref int a, ref int b)
+        {
+            int swap = a;
+            a = b;
+            b = swap;
+        }
+
+        // in parameters can not be changed
+        public static void InParameters(in int a)
+        {
+            //a = 7;
+           
+        }
     }
 }

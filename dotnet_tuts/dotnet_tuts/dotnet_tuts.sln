@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpTut", "CSharpTut\CSha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{1356E867-96D7-41C4-B9AA-63BC11058FA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{75B41F3B-FE25-47FE-AD60-BE7EAB7B21B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{75B41F3B-FE25-47FE-AD60-BE7EAB7B21B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructsAndAlgorithms", "DataStructsAndAlgorithms\DataStructsAndAlgorithms.csproj", "{0A40135D-D7E3-45D9-8DC9-926A83D68491}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructsAndAlgorithms", "DataStructsAndAlgorithms\DataStructsAndAlgorithms.csproj", "{0A40135D-D7E3-45D9-8DC9-926A83D68491}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostBuilder", "HostBuilder\HostBuilder.csproj", "{9964148C-ED68-4ACC-87C5-B961D0822C19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0A40135D-D7E3-45D9-8DC9-926A83D68491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A40135D-D7E3-45D9-8DC9-926A83D68491}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A40135D-D7E3-45D9-8DC9-926A83D68491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9964148C-ED68-4ACC-87C5-B961D0822C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9964148C-ED68-4ACC-87C5-B961D0822C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9964148C-ED68-4ACC-87C5-B961D0822C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9964148C-ED68-4ACC-87C5-B961D0822C19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
