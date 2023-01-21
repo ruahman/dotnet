@@ -46,5 +46,37 @@ namespace CSharpTut.Delegate
 
             return dblIt(a);
         }
+
+        static int Sum(int x, int y)
+        {
+            return x + y;
+        }
+
+        public static void TestFuncDelegate()
+        {
+            // has return type
+            Func<int, int, int> add = Sum;
+
+            int result = add(10, 10);
+
+            Console.WriteLine(result);
+
+            Func<int, int, int> Sum2 = (x, y) => x + y;
+
+            int result2 = Sum2(2, 3);
+
+            Console.WriteLine(result2);
+        }
+
+        static void ConsolePrint(int i)
+        {
+            Console.WriteLine(i);
+        }
+
+        public static void TestActionDelegate()
+        {
+            // no return type
+            Action<int> printActionDel = ConsolePrint;
+        }
     }
 }
