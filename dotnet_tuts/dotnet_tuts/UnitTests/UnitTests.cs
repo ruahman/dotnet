@@ -54,6 +54,7 @@ namespace UnitTests
 
         [Fact]
         [Trait("Category", "HelloWorld")]
+        // dotnet test -l "console;verbosity=detailed" --filter "FullyQualifiedName=UnitTests.UnitTests.HelloWorld_GivenNothing_ReturnString"
         public void HelloWorld_GivenNothing_ReturnString()
         {
             var res = HelloWorld.Hello();
