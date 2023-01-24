@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Dog2Bone.Console": {
-      "commandName": "Project",
-      "commandLineArgs": "initialize.json moves.csv"
-    }
-  }
-}
