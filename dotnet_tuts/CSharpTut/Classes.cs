@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace CSharpTut.Classes
 {
     public class Book
@@ -31,12 +25,12 @@ namespace CSharpTut.Classes
         {
             this.name = name;
             this.major = major;
-            this.gpa = gpa; 
+            this.gpa = gpa;
         }
 
         public bool HasHonors()
         {
-            if(gpa >= 3.5)
+            if (gpa >= 3.5)
             {
                 return true;
             }
@@ -56,13 +50,14 @@ namespace CSharpTut.Classes
             this.title = title;
             Rating = rating;
             this.director = director;
-        }   
+        }
 
         public string Rating
         {
-            get { return rating; } 
-            set { 
-                if(value == "G" || value == "PG" || value == "R")
+            get { return rating; }
+            set
+            {
+                if (value == "G" || value == "PG" || value == "R")
                 {
                     rating = value;
                 }
@@ -90,7 +85,7 @@ namespace CSharpTut.Classes
             string msg = "I cook bacon the italian way";
             return msg;
         }
-        
+
         public string CookPizza()
         {
             string msg = "I can do some other things";
@@ -102,7 +97,7 @@ namespace CSharpTut.Classes
     {
         string _middleName = "Ramon";
         public string? FirstName { get; set; }
-        public string? LastName { get; set;}    
+        public string? LastName { get; set; }
 
         public string FullName
         {
@@ -116,7 +111,7 @@ namespace CSharpTut.Classes
         {
             return FirstName + LastName;
         }
-        
+
     }
 
     public class Car
@@ -156,9 +151,9 @@ namespace CSharpTut.Classes
     {
         public static Book CreateBook()
         {
-            var book1 = new Book("Dune","Diego Vila", 300);
+            var book1 = new Book("Dune", "Diego Vila", 300);
 
-            
+
 
             return book1;
         }
