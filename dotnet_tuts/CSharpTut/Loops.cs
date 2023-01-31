@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSharpTut
+﻿namespace CSharpTut
 {
     public class Loops
     {
@@ -21,7 +15,7 @@ namespace CSharpTut
         public static int ForLoop()
         {
             int res = 0;
-            for(int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 5; i++)
             {
                 res = i;
             }
@@ -32,7 +26,7 @@ namespace CSharpTut
         {
             int res = 0;
             List<int> items = new List<int>() { 1, 2, 3, 5, 8, 13 };
-            foreach(int i in items)
+            foreach (int i in items)
             {
                 res += i;
             }
