@@ -57,7 +57,7 @@
         public static int? Nullable()
         {
             int? x = null;
-            
+
             return x;
         }
 
@@ -73,7 +73,7 @@
 
         }
 
-        public static (string,double,int,string) Conversion()
+        public static (string, double, int, string) Conversion()
         {
             int myInt = 10;
             double myDouble = 5.25;
@@ -84,16 +84,26 @@
             var res3 = Convert.ToInt32(myDouble);  // convert double to int
             var res4 = Convert.ToString(myBool);   // convert bool to string
 
-            return (res1,res2, res3, res4);
+            return (res1, res2, res3, res4);
 
         }
 
-        public static (bool,int) TryParse()
+        public static (bool, int) TryParse()
         {
             string number = "128";
 
             bool success = int.TryParse(number, out int parseValue);
-            return (success,parseValue);
+            return (success, parseValue);
+        }
+
+        // you can use out to return more than on variable from a function
+        public static (DateTime, DateTime) OutVariables()
+        {
+            DateTime dt;
+            DateTime.TryParse("2/22/2023", out dt);
+            DateTime.TryParse("2/22/2024", out DateTime dt2);
+
+            return (dt, dt2);
         }
     }
 }

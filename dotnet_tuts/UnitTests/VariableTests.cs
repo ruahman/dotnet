@@ -107,6 +107,19 @@ namespace UnitTests
             Assert.Equal(128, res.Item2);
         }
 
+        [Fact]
+        [Trait("CSharp", "Variables")]
+        public void OutVariables()
+        {
+            var res = Variables.OutVariables();
+
+            var test1 = new DateTime(2023, 2, 22);
+            Assert.Equal(test1, res.Item1);
+
+            var test2 = new DateTime(2024, 2, 22);
+            Assert.Equal(test2, res.Item2);
+        }
+
 
     }
 }
