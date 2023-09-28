@@ -1,5 +1,6 @@
 ﻿namespace CSharpTut
 {
+    
     public class Arrays
     {
         public static (int[], int) ArrayOfIntegers()
@@ -19,6 +20,7 @@
 
         public static int[,] Arrays2D()
         {
+          
             int[,] numbers =
             {
                 {1,2},
