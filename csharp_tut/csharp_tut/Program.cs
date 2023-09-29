@@ -1,3 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using csharp_tut;
+
 Console.WriteLine("Hello, World!");
 
+Car myCar = new Car();
+Console.WriteLine($"myCar.color: {myCar.color}");
+Car.Exec();
