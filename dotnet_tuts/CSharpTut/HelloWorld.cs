@@ -1,26 +1,16 @@
 ﻿namespace CSharpTut
 {
-    public class HelloWorld
+    public static class HelloWorld
     {
-        public static String Hello()
+        public static string Hello()
         {
-            String msg = "Hello World";
-            System.Console.WriteLine(msg);
-            return msg;
+            return "Hello World";
         }
 
-        public static String Goodbye()
+        public static string Goodbye()
         {
-            String msg = "Goodbye";
-            return msg;
+            return "Goodbye";
         }
 
-        public static String ReadLine()
-        {
-            string? name = Console.ReadLine();
-            string msg = $"my name is {name}";
-            System.Console.WriteLine(msg);
-            return msg;
-        }
     }
 }
