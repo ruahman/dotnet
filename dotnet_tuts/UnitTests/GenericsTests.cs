@@ -1,4 +1,4 @@
-﻿using CSharpTut.Generics;
+﻿using CSharpLib.Generics;
 
 namespace UnitTests
 {

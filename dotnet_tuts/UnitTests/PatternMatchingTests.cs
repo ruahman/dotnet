@@ -1,4 +1,4 @@
-using CSharpTut;
+using CSharpLib;
 using Xunit.Abstractions;
 
 namespace UnitTests
@@ -21,8 +21,8 @@ namespace UnitTests
         [Trait("CSharp", "PatternMatching")]
         public void TestPatternMatching()
         {
-            var res = CSharpTut.PatternMatching.PatternMatching.Demo();
-            Assert.Equal("this is a small circle: CSharpTut.PatternMatching.Circle", res);
+            var res = CSharpLib.PatternMatching.PatternMatching.Demo();
+            Assert.Equal("this is a small circle: CSharpLib.PatternMatching.Circle", res);
         }
     }
 }

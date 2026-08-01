@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace CSharpTut
+namespace CSharpLib
 {
     public class StringBuilderTut
     {

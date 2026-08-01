@@ -1,4 +1,4 @@
-﻿using CSharpTut;
+﻿using CSharpLib;
 
 namespace ConsoleApp
 {

@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpTut.Delegate
+namespace CSharpLib.Delegate
 {
     public delegate double Arithmetic(double num1, double num2);
 

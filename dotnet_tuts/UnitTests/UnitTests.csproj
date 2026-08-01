@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CSharpTut\CSharpTut.csproj" />
+    <ProjectReference Include="..\CSharpLib\CSharpLib.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿using CSharpTut.Events;
+﻿using CSharpLib.Events;
 using Xunit.Abstractions;
 
 namespace UnitTests

@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace CSharpTut
+namespace CSharpLib
 {
     public interface ITalk
     {

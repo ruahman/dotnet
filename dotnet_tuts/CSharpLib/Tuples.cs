@@ -1,5 +1,5 @@
 ﻿
-namespace CSharpTut
+namespace CSharpLib
 {
     public class Tuples
     {

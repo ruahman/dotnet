@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpTut.GenericConstraints
+namespace CSharpLib.GenericConstraints
 {
     // give constains to what you can put in generic
 

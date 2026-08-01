@@ -1,6 +1,6 @@
-﻿using CSharpTut.Classes;
+﻿using CSharpLib.Classes;
 
-namespace CSharpTut.LinqTut
+namespace CSharpLib.LinqTut
 {
     public static class LinqTut
     {

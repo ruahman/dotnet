@@ -1,6 +1,6 @@
 using System;
 
-namespace CSharpTut.PatternMatching
+namespace CSharpLib.PatternMatching
 {
     public class Shape
     {

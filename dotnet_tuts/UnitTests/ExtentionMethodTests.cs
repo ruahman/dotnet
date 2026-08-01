@@ -1,4 +1,4 @@
-﻿using CSharpTut.ExtentionMethods;
+﻿using CSharpLib.ExtentionMethods;
 using Xunit.Abstractions;
 
 namespace UnitTests

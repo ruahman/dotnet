@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpTut.Events
+namespace CSharpLib.Events
 {
     public delegate void Notify();  // delegate
 

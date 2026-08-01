@@ -1,4 +1,4 @@
-﻿using CSharpTut.Classes;
+﻿using CSharpLib.Classes;
 
 
 namespace UnitTests

@@ -1,6 +1,6 @@
 ﻿
 
-namespace CSharpTut
+namespace CSharpLib
 {
     public class Collections
     {

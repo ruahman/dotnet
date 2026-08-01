@@ -1,4 +1,4 @@
-﻿namespace CSharpTut;
+﻿namespace CSharpLib;
 
 public static class Conversion
 {

@@ -1,5 +1,5 @@
 ﻿
-namespace CSharpTut.Classes
+namespace CSharpLib.Classes
 {
     public class Book
     {

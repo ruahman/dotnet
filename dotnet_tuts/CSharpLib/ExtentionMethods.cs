@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpTut.ExtentionMethods
+namespace CSharpLib.ExtentionMethods
 {
     // Extension methods allow you to inject additional methods without modifying, deriving or recompiling the original class,
     // struct or interface.

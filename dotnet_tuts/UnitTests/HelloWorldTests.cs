@@ -2,7 +2,7 @@
 
 namespace UnitTests;
 
-using CSharpTut;
+using CSharpLib;
 
 public class HelloWorldTests(ITestOutputHelper output)
 { 
