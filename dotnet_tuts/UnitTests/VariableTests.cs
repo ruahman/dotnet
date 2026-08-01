@@ -6,11 +6,11 @@ namespace UnitTests
     public class VariableTests
     {
 
-        private readonly ITestOutputHelper output;
+        private readonly ITestOutputHelper _output;
 
         public VariableTests(ITestOutputHelper output)
         {
-            this.output = output;
+            this._output = output;
 
             // console now outputs to xUnit
             var converter = new Converter(output);
@@ -18,10 +18,9 @@ namespace UnitTests
         }
 
         [Fact]
-        [Trait("CSharp", "Variables")]
         public void Strings()
         {
-            (String first, String second, int length, string upper, bool contains, char myChar, int idx, string literal) = Variables.Strings();
+            var (first, second, length, upper, contains, myChar, idx, literal) = Variables.Strings();
             Assert.Equal("Diego", first);
             Assert.Equal("my name is Diego", second);
             Assert.Equal(16, length);
@@ -30,7 +29,7 @@ namespace UnitTests
             Assert.Equal('D', myChar);
             Assert.Equal(11, idx);
             Assert.Equal(@"G:\My Drive\Documents\denote", literal);
-            output.WriteLine(second);
+            _output.WriteLine(second);
 
         }
 

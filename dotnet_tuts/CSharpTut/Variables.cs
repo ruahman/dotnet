@@ -1,14 +1,17 @@
 ﻿namespace CSharpTut
 {
-    public class Variables
+    public abstract class Variables
     {
         public static (string, string, int, string, bool, char, int, string) Strings()
         {
-            string myName = "Diego";
+            const string myName = "Diego";
 
-            string interpolation = $"my name is {myName}";
+            const string interpolation = $"my name is {myName}";
 
-            string literal = @"G:\My Drive\Documents\denote";
+            const string literal = @"G:\My Drive\Documents\denote";
+           
+            // this was mapped in UnitTester
+            Console.WriteLine("dont need output!!!!");
 
             return (
                 myName,
@@ -17,7 +20,7 @@
                 myName.ToUpper(),
                 interpolation.Contains("Diego"),
                 myName[0],
-                interpolation.IndexOf("Diego"),
+                interpolation.IndexOf("Diego", StringComparison.Ordinal),
                 literal
             );
         }
@@ -31,8 +34,13 @@
 
         public static (int, int) Integers()
         {
-            int myAge = 42;
-            int abs = Math.Abs(-7);
+            const int myAge = 42;
+            var abs = Math.Abs(-7);
+
+            // if you need to use a keyword as a variable name, you can use the @ symbol
+            const int @int = 43;
+            
+            Console.WriteLine(@int);
 
 
             return (myAge, abs);

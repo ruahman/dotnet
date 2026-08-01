@@ -4,12 +4,12 @@ namespace UnitTests;
 
 using CSharpTut;
 
-public class HelloWorldTests(ITestOutputHelper testOutputHelper)
+public class HelloWorldTests(ITestOutputHelper output)
 { 
     [Fact] 
     public  void HelloWorldTest()
     {
-         testOutputHelper.WriteLine("Hello World!"); 
+         output.WriteLine("Hello World!"); 
          Assert.Equal("Hello World", HelloWorld.Hello());
          Assert.Equal("Goodbye", HelloWorld.Goodbye());
     } 
