@@ -7,9 +7,9 @@ public static class Conversion
         Console.WriteLine("Implicit conversion");
         const byte b = 10;
         const int i = b;
-        Console.WriteLine("{0}", i);
+        Console.WriteLine("{0}: {1}", i, i.GetType());
         const float f = i;
-        Console.WriteLine("{0:f}", f);
+        Console.WriteLine("{0}: {1:f}", f.GetType(), f);
     }
 
     public static void Explicit()

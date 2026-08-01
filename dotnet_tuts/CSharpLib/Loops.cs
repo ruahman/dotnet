@@ -1,36 +1,32 @@
-﻿namespace CSharpLib
+﻿namespace CSharpLib;
+
+public class Loops
 {
-    public class Loops
+    public static int WhileLoop()
     {
-        public static int WhileLoop()
+        var index = 1;
+        while (index <= 5)
         {
-            int index = 1;
-            while (index <= 5)
-            {
-                index++;
-            }
-            return index;
+            index++;
+            Console.WriteLine("WhileLoop: {0}", index);
         }
 
-        public static int ForLoop()
-        {
-            int res = 0;
-            for (int i = 1; i <= 5; i++)
-            {
-                res = i;
-            }
-            return res;
-        }
+        return index;
+    }
 
-        public static int ForEachLoop()
-        {
-            int res = 0;
-            List<int> items = new List<int>() { 1, 2, 3, 5, 8, 13 };
-            foreach (int i in items)
-            {
-                res += i;
-            }
-            return res;
-        }
+    public static int ForLoop()
+    {
+        var res = 0;
+        for (var i = 1; i <= 5; i++) res = i;
+        Console.WriteLine("ForLoop: {0}", res);
+        return res;
+    }
+
+    public static int ForEachLoop()
+    {
+        var res = 0;
+        var items = new List<int> { 1, 2, 3, 5, 8, 13 };
+        foreach (var i in items) res += i;
+        return res;
     }
 }

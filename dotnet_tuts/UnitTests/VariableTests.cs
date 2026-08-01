@@ -11,6 +11,7 @@ public class VariableTests
     {
         _output = output;
 
+
         // console now outputs to xUnit
         var converter = new Converter(output);
         Console.SetOut(converter);
