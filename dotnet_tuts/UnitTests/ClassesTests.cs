@@ -1,41 +1,49 @@
 ﻿using CSharpLib.Classes;
+using Xunit.Abstractions;
 
+namespace UnitTests;
 
-namespace UnitTests
+public class ClassesTests
 {
-    public class ClassesTests
+    private readonly ITestOutputHelper _output;
+
+    public ClassesTests(ITestOutputHelper output)
     {
-        [Fact]
-        [Trait("CSharp","Classes")]
-        public void CreateBook()
-        {
-            var res = Classes.CreateBook();
-            Assert.Equal("Dune", res.title);
-        }
+        _output = output;
+        Console.SetOut(new Converter(_output));
+    }
 
-        [Fact]
-        [Trait("CSharp", "Classes")]
-        public void HasHonors()
-        {
-            var res = Classes.HasHonors();
-            Assert.True(res);
-        }
+    [Fact]
+    public void CreateBook()
+    {
+        var book = new Book("Dune", "Diego Vila", 300);
+        _output.WriteLine(book.ToString());
+        Assert.Equal("Dune", book.title);
+    }
 
-        [Fact]
-        [Trait("CSharp", "Classes")]
-        public void GetMovie()
-        {
-            var res = Classes.GetMovie();
-            Assert.Equal("PG",res.Rating);
-        }
+    [Fact]
+    public void HasHonors()
+    {
+        var student = new Student("Diego", "computer science", 3.5);
+        _output.WriteLine(student.ToString());
+        var res = student.HasHonors();
+        Assert.True(res);
+    }
 
-        [Fact]
-        [Trait("CSharp", "Classes")]
-        public void GetItalianChef()
-        {
-            var res = Classes.GetItalianChef();
-            Assert.Equal("I cook bacon the italian way", res.CookBacon());
-            Assert.Equal("I can do some other things", ((ItalianChef)res).CookPizza());
-        }
+    [Fact]
+    public void GetMovie()
+    {
+        var movie = new Movie("Dune", "Tim burton", "PG");
+        _output.WriteLine(movie.ToString());
+        Assert.Equal("PG", movie.Rating);
+    }
+
+    [Fact]
+    public void GetItalianChef()
+    {
+        var chef = new ItalianChef();
+        _output.WriteLine(chef.ToString());
+        Assert.Equal("I cook bacon the italian way", chef.CookBacon());
+        Assert.Equal("I can do some other things", chef.CookPizza());
     }
 }
