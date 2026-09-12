@@ -1,28 +1,25 @@
-using CSharpLib;
+using CSharpLib.PatternMatching;
 using Xunit.Abstractions;
 
-namespace UnitTests
+namespace UnitTests;
+
+public class PatternMatchingTests
 {
-    public class PatternMatchingTests
+    private readonly ITestOutputHelper output;
+
+    public PatternMatchingTests(ITestOutputHelper output)
     {
+        this.output = output;
 
-        private readonly ITestOutputHelper output;
+        // console now outputs to xUnit
+        var converter = new Converter(output);
+        Console.SetOut(converter);
+    }
 
-        public PatternMatchingTests(ITestOutputHelper output)
-        {
-            this.output = output;
-
-            // console now outputs to xUnit
-            var converter = new Converter(output);
-            Console.SetOut(converter);
-        }
-
-        [Fact]
-        [Trait("CSharp", "PatternMatching")]
-        public void TestPatternMatching()
-        {
-            var res = CSharpLib.PatternMatching.PatternMatching.Demo();
-            Assert.Equal("this is a small circle: CSharpLib.PatternMatching.Circle", res);
-        }
+    [Fact]
+    public void TestPatternMatching()
+    {
+        var res = PatternMatching.Demo();
+        Assert.Equal("this is a small circle: CSharpLib.PatternMatching.Circle", res);
     }
 }

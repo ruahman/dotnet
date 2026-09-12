@@ -1,33 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace CSharpLib;
+// Extension methods allow you to inject additional methods without modifying, deriving or recompiling the original class,
+// struct or interface.
 
-namespace CSharpLib.ExtentionMethods
+// this extends int
+public static class IntExtensions
 {
-    // Extension methods allow you to inject additional methods without modifying, deriving or recompiling the original class,
-    // struct or interface.
-
-    public static class IntExtensions
+    public static bool IsGreaterThan(this int i, int value)
     {
-        public static bool IsGreaterThan(this int i, int value)
-        {
-            return i > value;
-        }
+        return i > value;
     }
+}
 
-    public class ExtentionMethods
+public abstract class ExtentionMethods
+{
+    public static void Test()
     {
-        
+        var i = 10;
 
-        public static void Test()
-        {
-            int i = 10;
+        // run extention for int
+        var result = i.IsGreaterThan(100);
 
-            bool result = i.IsGreaterThan(100);
-
-            Console.WriteLine(result);
-        }
+        Console.WriteLine(result);
     }
 }
