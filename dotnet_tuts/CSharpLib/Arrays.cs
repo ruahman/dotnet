@@ -6,6 +6,7 @@ public class Arrays
     {
         int[] numbers = { 1, 2, 3, 5, 8, 13 };
         Console.WriteLine("numbers: {0}", numbers);
+        Console.WriteLine("length: {0}", numbers.Length);
         return (numbers, numbers[3]);
     }
 

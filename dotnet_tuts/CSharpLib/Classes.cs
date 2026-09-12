@@ -129,3 +129,29 @@ internal abstract class Animal
         Console.WriteLine("Zzz");
     }
 }
+
+public class Person2
+{
+    private string _middleName;
+
+    public Person2(string s)
+    {
+        _middleName = s;
+    }
+
+    public string MiddleName
+    {
+        get => _middleName + " foobar";
+        set => _middleName = value;
+    }
+
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+    public string FullName => FirstName + " " + LastName;
+
+    public string GetFullName()
+    {
+        return FirstName + " " + LastName;
+    }
+}

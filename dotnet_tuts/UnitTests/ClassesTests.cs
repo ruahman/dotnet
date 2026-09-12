@@ -46,4 +46,17 @@ public class ClassesTests
         Assert.Equal("I cook bacon the italian way", chef.CookBacon());
         Assert.Equal("I can do some other things", chef.CookPizza());
     }
+
+    [Fact]
+    public void CreatePerson2()
+    {
+        var person = new Person2("Ramon");
+        person.FirstName = "Diego";
+        person.LastName = "Vila";
+        Assert.Equal("Diego", person.FirstName);
+        Assert.Equal("Vila", person.LastName);
+        Assert.Equal("Diego Vila", person.GetFullName());
+        Assert.Equal("Diego Vila", person.FullName);
+        Assert.Equal("Ramon foobar", person.MiddleName);
+    }
 }
