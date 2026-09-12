@@ -3,9 +3,9 @@ using Xunit.Abstractions;
 
 namespace UnitTests;
 
-public class EventsTests
+public class DynamicTypesTest
 {
-    public EventsTests(ITestOutputHelper output)
+    public DynamicTypesTest(ITestOutputHelper output)
     {
         // console now outputs to xUnit
         var converter = new Converter(output);
@@ -13,14 +13,8 @@ public class EventsTests
     }
 
     [Fact]
-    public void TestEvents()
+    private void TestDynamicTypes()
     {
-        Events.Test();
-    }
-
-    [Fact]
-    public void TestEvents2()
-    {
-        Events.Test2();
+        DynamicTypes.TestDynamicTypes();
     }
 }

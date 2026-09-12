@@ -3,9 +3,9 @@ using Xunit.Abstractions;
 
 namespace UnitTests;
 
-public class EventsTests
+public class EnumTests
 {
-    public EventsTests(ITestOutputHelper output)
+    public EnumTests(ITestOutputHelper output)
     {
         // console now outputs to xUnit
         var converter = new Converter(output);
@@ -13,14 +13,8 @@ public class EventsTests
     }
 
     [Fact]
-    public void TestEvents()
+    private void TestEnums()
     {
-        Events.Test();
-    }
-
-    [Fact]
-    public void TestEvents2()
-    {
-        Events.Test2();
+        Enums.TestEnum();
     }
 }
