@@ -1,0 +1,10 @@
+
+build:
+  dotnet build
+
+run:
+  dotnet run --project ConsoleApp
+
+test:
+  dotnet test
+
