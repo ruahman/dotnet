@@ -1,10 +1,29 @@
 
+restore:
+  dotnet restore
+
+restore-project project:
+  dotnet restore {{project}}
+
 build:
   dotnet build
 
-run:
-  dotnet run --project ConsoleApp
+build-project project:
+  dotnet build {{project}}
+
+
+run-app app="ConsoleApp":
+  dotnet run --no-restore --project {{app}}
 
 test:
-  dotnet test
+  dotnet test --no-restore
+
+test-namespace namespace="UnitTests":
+  dotnet test --no-restore --filter {{namespace}}
+
+test-suite suite:
+  dotnet test --no-restore --filter UnitTests.{{suite}}
+
+test-method suite method:
+  dotnet test --no-restore --logger "console;verbosity=detailed" --filter UnitTests.{{suite}}.{{method}}
 

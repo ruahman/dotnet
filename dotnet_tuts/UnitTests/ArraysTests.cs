@@ -35,13 +35,16 @@ public class ArraysTests
     public void Arrays2d()
     {
         var res = Arrays.Arrays2D();
-        Assert.Equal(new[,]
-        {
-            { 1, 2 },
-            { 2, 3 },
-            { 3, 4 },
-            { 4, 5 }
-        }, res);
+        Assert.Equal(
+            new[,]
+            {
+                { 1, 2 },
+                { 2, 3 },
+                { 3, 4 },
+                { 4, 5 },
+            },
+            res
+        );
     }
 
     [Fact]
